@@ -9,7 +9,8 @@ def clear_memory():
   torch.cuda.empty_cache()
 	
 
-def get_encoders(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
+#def get_encoders(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
+def get_encoders(model_path = "stabilityai/stabilityai/stable-diffusion-3.5-large"):
   '''downloading all the encoders and tokenizer and loading them in gpu'''
   clear_memory()
   global tokenizer_1, text_encoder_1, tokenizer_2, text_encoder_2, tokenizer_3, text_encoder_3, modules_list_text_encoder_3
