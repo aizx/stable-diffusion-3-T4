@@ -9,8 +9,7 @@ def clear_memory():
   torch.cuda.empty_cache()
 	
 
-#def get_encoders(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
-def get_encoders(model_path = "stabilityai/stable-diffusion-3.5-large"):
+def get_encoders(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
   '''downloading all the encoders and tokenizer and loading them in gpu'''
   clear_memory()
   global tokenizer_1, text_encoder_1, tokenizer_2, text_encoder_2, tokenizer_3, text_encoder_3, modules_list_text_encoder_3
@@ -68,7 +67,7 @@ def get_encoders(model_path = "stabilityai/stable-diffusion-3.5-large"):
   modules_list_text_encoder_3 = modules_list_text_encoder_3[::-1]
   clear_memory()
 
-def get_tranformer_vae(model_path = "stabilityai/stable-diffusion-3.5-large"):
+def get_tranformer_vae(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
   '''downloading the pipeline without encoders and tokenizers and loading them in cpu'''
   clear_memory()
   global pipe, modules_list_transformer
@@ -175,7 +174,7 @@ def generate_sd3_t4_image(prompt, neg_prompt='', num_inference_steps=28, guidanc
   return image
 
 
-def load_sd3_t4_pipeline(model_path = "stabilityai/stable-diffusion-3.5-large"):
+def load_sd3_t4_pipeline(model_path = "stabilityai/stable-diffusion-3-medium-diffusers"):
   clear_memory()
   get_encoders(model_path)
   get_tranformer_vae(model_path)
